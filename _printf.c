@@ -6,7 +6,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i;
+	int j;
 	/*case c variables */
 	char ch;
 	/* case s varaibles */
@@ -17,39 +17,46 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	i = 0;
-	while (format[i])
+	j = 0;
+	while (format[j])
 	{
-		if (format[i] == '%')
+		if (format[j] == '%')
 		{
-			i++;
-			switch (format[i])
+			j++;
+			switch (format[j])
 			{
 				case 'c':
 				{
 					ch = va_arg(args, int);
 					_putchar(ch);
-					i++;
+					j++;
 				}
 				break;
 				case 's':
 				{
 					str = va_arg(args, char *);
 					prt_str(str);
-					i++;
+					j++;
 				}
 				break;
 				case '%':
 				{
 					_putchar('%');
-					i++;
+					j++;
 				}
 				break;
 				case 'd':
 				{
 					numb = va_arg(args, int);
 					prt_int(numb);
-					i++;
+					j++;
+				}
+				break;
+				case 'i':
+				{
+					numb = va_arg(args, int);
+					prt_int(numb);
+					j++;
 				}
 				break;
 				default:
@@ -59,10 +66,10 @@ int _printf(const char *format, ...)
 
 		}
 
-		_putchar(format[i]);
-		i++;
+		_putchar(format[j]);
+		j++;
 	}
 	va_end(args);
 	_putchar('\n');
-	return (i);
+	return (j);
 }

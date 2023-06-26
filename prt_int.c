@@ -7,6 +7,7 @@
 void prt_int(int _n)
 {
 	int i = -1;
+
 	if (_n < 0)
 	{
 		i *= _n;

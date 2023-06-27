@@ -10,10 +10,11 @@
 int main(void)
 {
 	int len, len2;
-	
-	len = printf("hello world");
-	len2 = _printf("hello world");
-	printf("printf len: %d, len2: %d", len, len2);
-	_printf("_printf len: %d; len2: %d", len, len2);
+    int num = 998;
+
+	len = _printf("Length:[%d, %i]\n", num, num);
+	len2 = printf("Length:[%d, %i]\n", num, num);
+	_printf("len: %d,  len2: %d\n", len, len2);
+
 	return (0);
 }

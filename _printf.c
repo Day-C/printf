@@ -22,52 +22,35 @@ int _printf(const char *format, ...)
 	j = 0;
 	while (format[j])
 	{
+		
 		if (format[j] == '%')
 		{
-			switch (format[(j+1)])
+			j++;
+			switch (format[j])
 			{
 				case 'c':
-				{
-					j++;
 					ch = va_arg(args, int);
 					_putchar(ch);
-					j++;
-				}
-				continue;
+					break;
 				case 's':
-				{
-					j++;
 					str = va_arg(args, char *);
 					prt_str(str);
-					j++;
-				}
-				break;
+					break;
 				case '%':
-				{
 					j++;
 					_putchar('%');
-					j++;
-				}
-				break;
+					break;
 				case 'd':
-				{
-					j++;
 					numb = va_arg(args, int);
 					prt_int(numb);
-					j++;
-				}
-				break;
+					break;
 				case 'i':
-				{
-					j++;
-					numb = va_arg(args, int);
+				numb = va_arg(args, int);
 					prt_int(numb);
-					j++;
-				}
-				break;
+					break;
 				default:
 
-				break;
+					break;
 			}
 		}
 		_putchar(format[j]);

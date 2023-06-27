@@ -13,6 +13,9 @@ int _printf(const char *format, ...)
 	char *str;
 	/* case d variables */
 	int numb;
+	/* case % variables */
+	char ps;
+
 	va_list args;
 
 	va_start(args, format);
@@ -41,7 +44,8 @@ int _printf(const char *format, ...)
 				break;
 				case '%':
 				{
-					_putchar('%');
+					ps = va_arg(args, int);
+					_putchar(ps);
 					j++;
 				}
 				break;

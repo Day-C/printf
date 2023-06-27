@@ -7,16 +7,7 @@
 void prt_str(char *str)
 {
 	int i = 0;
-	int j;
-	char *ptr = "(NULL)";
 
-	if (str == NULL)
-	{
-		for (j = 0; ptr[j] != '\0'; j++)
-		{
-			_putchar(ptr[j]);
-		}
-	}
 	while (str[i])
 	{
 		_putchar(str[i]);

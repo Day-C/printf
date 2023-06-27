@@ -9,24 +9,11 @@
  */
 int main(void)
 {
-	int len;
-	int len2;
-	char *string = "hello World";
-	char *world = "where";
-	/*unsigned int ui;*/
-	/*void *addr;*/
-
-	len = _printf("Let's try to printf a simple sentence.\n");
-	len2 = printf("Let's try to printf a simple sentence.\n");
-	/*ui= (unsigned int)INT_MAX + 1024;*/
-	/*addr = (void *)0x7ffe637541f0;*/
-	_printf("Length:[%d, %i]\n", len, len);
-	printf("Length:[%d, %i]\n", len2, len2);
-	_printf("Negative:[%d]\n", -762534);
-	printf("Negative:[%d]\n", -762534);
-	_printf("----------------- test ------------\n");
-	_printf("%c, %c\n", 'l');
-	_printf("%s\n", world);
-	_printf("%s there is %s %s", string, world);
+	int len, len2;
+	
+	len = printf("hello world");
+	len2 = _printf("hello world");
+	printf("printf len: %d, len2: %d", len, len2);
+	_printf("_printf len: %d; len2: %d", len, len2);
 	return (0);
 }

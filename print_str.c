@@ -2,9 +2,9 @@
 /**
  * prt_str - function prints string
  * @str: parameter to function
- * Return: void
+ * Return: lenght of string
  */
-void prt_str(char *str)
+int prt_str(char *str)
 {
         int i = 0;
         if (str == NULL)
@@ -21,4 +21,5 @@ void prt_str(char *str)
                 _putchar(str[i]);
                 i++;
         }
+	return (i);
 }

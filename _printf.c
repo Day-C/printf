@@ -6,57 +6,48 @@
  */
 int _printf(const char *format, ...)
 {
-	int j;
-	/*case c variables */
-	char ch;
-	/* case s varaibles */
-	char *str;
-	/* case d variables */
-	int numb;
-	/* case % variables */
+	int j, i = 0;
 
 	va_list args;
 
 	va_start(args, format);
 
-	j = 0;
-	while (format[j])
+	for (j = 0; format[j] != '\0'; j++)
 	{
-		
-		if (format[j] == '%')
+		if (format[j] != '%')
 		{
-			j++;
-			switch (format[j])
-			{
-				case 'c':
-					ch = va_arg(args, int);
-					_putchar(ch);
-					break;
-				case 's':
-					str = va_arg(args, char *);
-					prt_str(str);
-					break;
-				case '%':
-					j++;
-					_putchar('%');
-					break;
-				case 'd':
-					numb = va_arg(args, int);
-					prt_int(numb);
-					break;
-				case 'i':
-				numb = va_arg(args, int);
-					prt_int(numb);
-					break;
-				default:
-
-					break;
-			}
+			_putchar(format[j]);
 		}
-		_putchar(format[j]);
-		j++;
+		else if (format[j + 1] == 'c')
+		{
+			_putchar(va_arg(args, int));
+			j++;
+		}
+		else if (format[j + 1] == 's')
+		{
+			prt_str(va_arg(args, char *));
+			j++;
+		}
+		else if (format[j + 1] == '%')
+		{
+			_putchar('%');
+			j++;
+		}
+		else if (format[j + 1] == 'd')
+		{
+			prt_int(va_arg(args, int));
+			j++;
+		}
+		else if (format[j + 1] == 'i')
+		{
+			prt_int(va_arg(args, int));
+			j++;
+		}
+		i++;;
+
+
 	}
 	va_end(args);
 	_putchar('\n');
-	return (j);
+	return (i);
 }

@@ -10,7 +10,7 @@
 int str_len(char *s);
 int _putchar(char c);
 int prt_str(char *str);
-int prt_int(int _n);
+int print_int(int _n);
 int format_specifier(const char *f, va_list args);
 int _printf(const char *format, ...);
 

@@ -1,29 +1,50 @@
 #include "main.h"
 /**
- * prt_int - function prints interger
- * @_n: parameter to function
+ * convert_int - function converts negative integers to positve
+ * @n: parameter to function
+ * Return: positive int
+ */
+int convert(int n)
+{
+	n = (-1) * n;
+	_putchar('-');
+	return (n);
+}
+
+/*
+ * print_digit - function prints all digits of a number
+ * @num: number to be printed
  * Return: void
  */
-int prt_int(int _n)
+int print_digit(int num)
 {
-	int digit, j = 1;
+	int count = 0;
 
-	if (_n < 0)
+	if (num == 0)
+		return (0);
+	print_digit(num / 10);
+	count++;
+	_putchar(num % 10 + '0');
+	return (count);
+}
+
+/**
+ * print_int - function prints any number positive or negative
+ * @n: parameter to function
+ * Return: void
+ */
+int print_int(int n)
+{
+	int numb, count;
+
+	if (n < 0)
 	{
-		_putchar('-');
-		_n = -_n;
+		numb = convert(n);
+		count = print_digit(numb);
 	}
-	digit = _n;
-	while (digit > 9)
+	else if (n > 0)
 	{
-		digit /= 10;
-		j *= 10;
+		count = print_digit(n);
 	}
-	while (j > 0)
-	{
-		_putchar('0' + _n / j);
-		_n %= j;
-		j /= 10;
-	}
-	return (0);
+	return (count);
 }

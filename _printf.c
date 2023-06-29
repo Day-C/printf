@@ -6,7 +6,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int j, i = 0;
+	int j, count = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -17,25 +17,27 @@ int _printf(const char *format, ...)
 		if (format[j] == '%')
 		{
 			j++;
-			if (format[j] == '%')
-			{
-				i += _putchar('%');
-				j++;
-			}
+			if (format[j] == '\0')
+				return (-1);
+			else if (format[j] == '%')
+				count += _putchar('%');
 			else if (format[j] == 'c')
-			{
-				i += _putchar(va_arg(args, int));
-				j++;
-			}
+				count +=_putchar(va_arg(args, int));
 			else if (format[j] == 's')
+				count += prt_str(va_arg(args, char *));
+			else if (format[j] == 'd' || format[j] == 'i')
+				count += prt_int(va_arg(args, int));
+			else
 			{
-				i += prt_str(va_arg(args, char *));
-				j++;
+				_putchar('%');
+				_putchar(format[j]);
 			}
 		}
-		_putchar(format[j]);
-		i++;
+		else
+		{
+			_putchar(format[j]);
+			count++;
+		}
 	}
-	_putchar('\n');
-	return (i);
+	return (count);
 }

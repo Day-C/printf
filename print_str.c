@@ -1,25 +1,17 @@
 #include "main.h"
 /**
- * prt_str - function prints string
- * @str: parameter to function
- * Return: lenght of string
+ * prt_str - func to print string
+ * @str: ppointer to string
+ * Return: index
  */
 int prt_str(char *str)
 {
-        int i = 0;
-        if (str == NULL)
-        {
-                _putchar('(');
-                _putchar('n');
-                _putchar('u');
-                _putchar('l');
-                _putchar('l');
-                _putchar(')');
-        }
-        while (str[i] !=  '\0')
-        {
-                _putchar(str[i]);
-                i++;
-        }
+	int i = 0;
+
+	while (str[i] != '\0')
+	{
+		_putchar(str[i]);
+		i++;
+	}
 	return (i);
 }

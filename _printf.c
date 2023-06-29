@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * _printf - print function
  * @format: format string
@@ -10,44 +11,37 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-
+	if (format == NULL)
+		return (-1);
 	for (j = 0; format[j] != '\0'; j++)
 	{
-		if (format[j] != '%')
+		if (format[j] == '%')
 		{
-			_putchar(format[j]);
-		}
-		else if (format[j + 1] == 'c')
-		{
-			_putchar(va_arg(args, int));
 			j++;
+			if (format[j] == '%')
+			{
+				i += _putchar('%');
+				j++;
+			}
+			else if (format[j] == 'c')
+			{
+				i += _putchar(va_arg(args, int));
+				j++;
+			}
+			else if (format[j] == 's')
+			{
+				i += prt_str(va_arg(args, char *));
+				j++;
+			}
+			else if (format[j] == 'd')
+			{
+				i += prt_int(va_arg(args, int));
+				j++;
+			}
 		}
-		else if (format[j + 1] == 's')
-		{
-			prt_str(va_arg(args, char *));
-			i += 2;
-			j++;
-		}
-		else if (format[j + 1] == '%')
-		{
-			_putchar('%');
-			j++;
-		}
-		else if (format[j + 1] == 'd')
-		{
-			prt_int(va_arg(args, int));
-			j++;
-		}
-		else if (format[j + 1] == 'i')
-		{
-			prt_int(va_arg(args, int));
-			j++;
-		}
-		i++;;
-
-
+		_putchar(format[j]);
+		i++;
 	}
-	va_end(args);
 	_putchar('\n');
 	return (i);
 }

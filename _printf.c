@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * _printf -variadic function taking parameters and prints them
  * @format: format string
@@ -31,11 +30,6 @@ int _printf(const char *format, ...)
 			else if (format[j] == 's')
 			{
 				i += prt_str(va_arg(args, char *));
-				j++;
-			}
-			else if (format[j] == 'd')
-			{
-				i += prt_int(va_arg(args, int));
 				j++;
 			}
 		}

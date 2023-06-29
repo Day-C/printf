@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * _printf - print function
+ * _printf -variadic function taking parameters and prints them
  * @format: format string
  * Return : return (0) if successful and any other number othersise
  */

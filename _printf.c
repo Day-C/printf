@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * _printf -variadic function taking parameters and prints them
- * @format: format string
- * Return : return (0) if successful and any other number othersise
+ * _printf - function prints content based on the identifier
+ * @format: string format
+ * Return: return the lenght of content printed or 0 otherwise
  */
 int _printf(const char *format, ...)
 {
@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 			else if (format[j] == '%')
 				count += _putchar('%');
 			else if (format[j] == 'c')
-				count +=_putchar(va_arg(args, int));
+				count += _putchar(va_arg(args, int));
 			else if (format[j] == 's')
 				count += prt_str(va_arg(args, char *));
 			else if (format[j] == 'd' || format[j] == 'i')

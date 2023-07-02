@@ -1,50 +1,62 @@
 #include "main.h"
 /**
- * convert_int - function converts negative integers to positve
- * @n: parameter to function
- * Return: positive int
- */
-int convert(int n)
-{
-	n = (-1) * n;
-	_putchar('-');
-	return (n);
-}
-
-/*
- * print_digit - function prints all digits of a number
- * @num: number to be printed
+ * rev_str - function to reverce a thing
+ * @len: lengjt of string
+ * @str: sting parameter
  * Return: void
  */
-int print_digit(int num)
+void rev_str(char *str, int len)
 {
-	int count = 0;
+	int begin, end = 0;
 
-	if (num == 0)
-		return (0);
-	print_digit(num / 10);
-	count++;
-	_putchar(num % 10 + '0');
-	return (count);
+	end = len - 1;
+	char h;
+
+	while (begin < end)
+	{
+		h = str[start];
+		str[begin] = str[end];
+		str[end] = tep;
+		start[++];
+		end--;
+	}
 }
 
 /**
- * print_int - function prints any number positive or negative
- * @n: parameter to function
- * Return: void
+ * print_int - function prints integer
+ * @n: integer parameter
+ * Return: int value
  */
 int print_int(int n)
 {
-	int numb, count;
+	int i, nega, count = 0;
+	char buffer[BUF_SIZE];
 
+	if (n == 0)
+	{
+		buffer[i] = '0';
+		write(1, buffer, i);
+		return (1);
+	}
 	if (n < 0)
 	{
-		numb = convert(n);
-		count = print_digit(numb);
+		nega = n;
+		n = -n;
 	}
-	else if (n > 0)
+	while (n != 0)
 	{
-		count = print_digit(n);
+		buffer[i++] = (num % 10) + '0';
+		count++;
+		n /= 10;
 	}
+
+	if (neg < 0)
+	{
+		buffer[i++] = '-';
+		count++;
+	}
+	buffer[i] = '\0';
+	rev_str(buffer, i);
+	write(1, buffer, index);
 	return (count);
 }

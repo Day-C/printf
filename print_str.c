@@ -7,7 +7,7 @@
 int prt_str(char *str)
 {
 	int i = 0;
-	
+
 	if (str == NULL)
 		str = "(null)";
 
